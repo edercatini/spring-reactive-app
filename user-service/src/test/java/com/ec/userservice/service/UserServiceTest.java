@@ -18,7 +18,7 @@ import reactor.test.StepVerifier;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class UserServiceTest {
+final class UserServiceTest {
 
     @InjectMocks
     private UserService service;
