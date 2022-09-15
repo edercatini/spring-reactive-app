@@ -1,0 +1,12 @@
+server:
+  port: ${SERVER_PORT:8091}
+spring:
+  mongodb:
+    embedded:
+      version: ${EMBEDDED_VERSION:3.6.2}
+  data:
+    mongodb:
+      database: ${DATABASE_NAME:db-products}
+#      port: ${DATABASE_PORT:27017}
+#      username: ${DATABASE_USERNAME}
+#      password: ${DATABASE_PASSWORD}
