@@ -43,6 +43,4 @@ public class OrderFulfillmentService {
                 .doOnNext(context::setTransactionResponseDto)
                 .thenReturn(context);
     }
-
-
 }

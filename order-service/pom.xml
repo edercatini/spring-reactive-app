@@ -40,11 +40,6 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct</artifactId>
-			<version>1.5.2.Final</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -108,11 +103,10 @@
 						</goals>
 						<configuration>
 							<excludes>
-								<exclude>**/controller/handler/*.class</exclude>
-								<exclude>**/exception/**/*.class</exclude>
+								<exclude>**/client/**/*.class</exclude>
 								<exclude>**/model/**/*.class</exclude>
 								<exclude>**/repository/**/*.class</exclude>
-								<exclude>**/UserServiceApplication.class</exclude>
+								<exclude>**/OrderServiceApplication.class</exclude>
 							</excludes>
 						</configuration>
 					</execution>
