@@ -19,7 +19,7 @@ public class ProductClient {
 
     public Mono<ProductDto> getProductById(String productId) {
         return webClient.get()
-                .uri("{id}", productId)
+                .uri("/{id}", productId)
                 .retrieve()
                 .bodyToMono(ProductDto.class);
     }

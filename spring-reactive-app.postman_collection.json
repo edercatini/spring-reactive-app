@@ -165,6 +165,26 @@
 					"response": []
 				},
 				{
+					"name": "Find transaction by user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{USER_HOST}}/user/transaction/1",
+							"protocol": "http",
+							"host": [
+								"{{USER_HOST}}"
+							],
+							"path": [
+								"user",
+								"transaction",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Add new user",
 					"request": {
 						"method": "POST",
@@ -186,6 +206,34 @@
 							],
 							"path": [
 								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 1,\n    \"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{USER_HOST}}/user/transaction",
+							"protocol": "http",
+							"host": [
+								"{{USER_HOST}}"
+							],
+							"path": [
+								"user",
+								"transaction"
 							]
 						}
 					},
@@ -237,15 +285,40 @@
 						}
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "order-service",
+			"item": [
+				{
+					"name": "Find orders by user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ORDER_HOST}}/order/user/1",
+							"protocol": "http",
+							"host": [
+								"{{ORDER_HOST}}"
+							],
+							"path": [
+								"order",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
 				},
 				{
-					"name": "Create user transaction",
+					"name": "Send order",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"userId\": 1,\n    \"amount\": 100\n}",
+							"raw": "{\n    \"userId\": 1,\n    \"productId\": \"632464fb14fc75016d5adcad\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -253,40 +326,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{USER_HOST}}/user/transaction",
+							"raw": "http://{{ORDER_HOST}}/order",
 							"protocol": "http",
 							"host": [
-								"{{USER_HOST}}"
+								"{{ORDER_HOST}}"
 							],
 							"path": [
-								"user",
-								"transaction"
+								"order"
 							]
 						}
 					},
 					"response": []
 				}
 			]
-		},
-		{
-			"name": "Find transaction by user id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{USER_HOST}}/user/transaction/1",
-					"protocol": "http",
-					"host": [
-						"{{USER_HOST}}"
-					],
-					"path": [
-						"user",
-						"transaction",
-						"1"
-					]
-				}
-			},
-			"response": []
 		}
 	],
 	"event": [
@@ -318,6 +370,11 @@
 		{
 			"key": "USER_HOST",
 			"value": "localhost:8082",
+			"type": "string"
+		},
+		{
+			"key": "ORDER_HOST",
+			"value": "localhost:8080",
 			"type": "string"
 		}
 	]
