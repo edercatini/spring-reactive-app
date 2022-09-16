@@ -20,7 +20,7 @@ import reactor.test.StepVerifier;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class UserTransactionServiceTest {
+final class UserTransactionServiceTest {
 
     @InjectMocks
     private UserTransactionService service;

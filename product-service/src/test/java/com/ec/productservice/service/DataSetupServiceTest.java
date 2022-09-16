@@ -13,7 +13,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class DataSetupServiceTest {
+final class DataSetupServiceTest {
 
     @InjectMocks
     private DataSetupService dataSetupService;

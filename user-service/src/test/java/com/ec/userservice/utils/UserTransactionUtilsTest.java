@@ -10,7 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
-class UserTransactionUtilsTest {
+final class UserTransactionUtilsTest {
 
     @Spy
     private UserTransactionUtils utils;
