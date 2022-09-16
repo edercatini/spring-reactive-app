@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.publisher.Sinks;
 import reactor.test.StepVerifier;
 
 import static org.mockito.Mockito.*;
@@ -28,6 +29,9 @@ final class ProductServiceTest {
 
     @Mock
     private ProductRepository repository;
+
+    @Mock
+    private ProductSinkService sink;
 
     @Test
     @DisplayName("Must retrieve all products once")
@@ -74,6 +78,7 @@ final class ProductServiceTest {
         when(repository.save(any(Product.class))).thenReturn(Mono.just(mock(Product.class)));
         when(mapper.toDto(any(Product.class))).thenReturn(mock(ProductDto.class));
         when(mapper.toEntity(any(ProductDto.class))).thenReturn(mock(Product.class));
+        when(sink.emit(any())).thenReturn(null);
 
         StepVerifier.create(service.save(Mono.just(mock(ProductDto.class))))
                 .expectNextCount(1L)
@@ -82,6 +87,7 @@ final class ProductServiceTest {
         verify(repository).save(any(Product.class));
         verify(mapper).toDto(any(Product.class));
         verify(mapper).toEntity(any(ProductDto.class));
+        verify(sink).emit(any());
     }
 
     @Test
