@@ -171,7 +171,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Name\",\n    \"price\": 1000\n}",
+							"raw": "{\n    \"name\": \"Name\",\n    \"balance\": 1000\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -198,7 +198,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Name-1\",\n    \"price\": 1000\n}",
+							"raw": "{\n    \"name\": \"Name-1\",\n    \"balance\": 10000\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -237,8 +237,56 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Create user transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 1,\n    \"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{USER_HOST}}/user/transaction",
+							"protocol": "http",
+							"host": [
+								"{{USER_HOST}}"
+							],
+							"path": [
+								"user",
+								"transaction"
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		},
+		{
+			"name": "Find transaction by user id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{USER_HOST}}/user/transaction/1",
+					"protocol": "http",
+					"host": [
+						"{{USER_HOST}}"
+					],
+					"path": [
+						"user",
+						"transaction",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
