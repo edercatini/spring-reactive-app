@@ -2,6 +2,6 @@ server:
   port: ${SERVER_PORT:8082}
 spring:
   r2dbc:
-    url: ${DATABASE_URL:r2dbc:h2:mem:///users}
+    url: ${DATABASE_URL:r2dbc:h2:mem:///users;DB_CLOSE_DELAY=-1}
     username: ${DATABASE_USERNAME:}
-    password: ${DATABASE_PWD}
+    password: ${DATABASE_PWD:}

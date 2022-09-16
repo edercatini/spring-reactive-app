@@ -10,4 +10,5 @@ public interface UserTransactionMapper {
 
     UserTransaction toEntity(TransactionRequestDto dto);
     TransactionResponseDto toResponse(UserTransaction userTransaction);
+    TransactionResponseDto requestToResponse(TransactionRequestDto dto);
 }
